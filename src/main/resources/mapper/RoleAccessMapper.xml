@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="aftnos.aftourismserver.auth.mapper.RoleAccessMapper">
+<mapper namespace="aifstock.auth.mapper.RoleAccessMapper">
 
-    <resultMap id="RoleAccessResultMap" type="aftnos.aftourismserver.auth.pojo.RoleAccess">
+    <resultMap id="RoleAccessResultMap" type="aifstock.auth.pojo.RoleAccess">
         <id property="id" column="id" />
         <result property="roleCode" column="role_code" />
         <result property="resourceKey" column="resource_key" />

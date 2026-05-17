@@ -84,8 +84,8 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
 
-    <!-- Aftourism Server 包日志 -->
-    <logger name="aftnos.aftourismserver" level="INFO" additivity="false">
+    <!-- aifstock 包日志 -->
+    <logger name="aifstock" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
 
@@ -93,16 +93,16 @@
     <logger name="org.springframework.web.servlet.resource" level="WARN" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
-    <logger name="aftnos.aftourismserver.common.exception" level="WARN" additivity="false">
+    <logger name="aifstock.common.exception" level="WARN" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
 
     <!-- 403错误日志 -->
-    <logger name="aftnos.aftourismserver.common.security.JwtAccessDeniedHandler" level="WARN" additivity="false">
+    <logger name="aifstock.common.security.JwtAccessDeniedHandler" level="WARN" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FORBIDDEN_FILE"/>
     </logger>
-    <logger name="aftnos.aftourismserver.common.exception.GlobalExceptionHandler" level="WARN" additivity="false">
+    <logger name="aifstock.common.exception.GlobalExceptionHandler" level="WARN" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FORBIDDEN_FILE"/>
     </logger>
@@ -117,13 +117,6 @@
 
     <!-- 数据库连接池日志 -->
     <logger name="com.zaxxer.hikari" level="WARN"/>
-
-    <!-- 你的业务包 -->
-    <logger name="com.yourcompany" level="INFO" additivity="false">
-        <appender-ref ref="APP_FILE"/>
-        <appender-ref ref="CONSOLE"/>
-    </logger>
-
     <!-- ================= 根日志 ================= -->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>

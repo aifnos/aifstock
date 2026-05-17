@@ -8,11 +8,11 @@
         <version>3.5.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>Aftnos</groupId>
-    <artifactId>Aftourism-server</artifactId>
+    <groupId>aifstock</groupId>
+    <artifactId>aifstock</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Aftourism-server</name>
-    <description>Aftourism-server</description>
+    <name>aifstock</name>
+    <description>aifstock</description>
     <url/>
     <licenses>
         <license/>

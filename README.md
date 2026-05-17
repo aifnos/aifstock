@@ -1,8 +1,6 @@
-# Aftourism Server
+# aifstock
 
-Aftourism Server 现在已瘦身为后台公共能力服务，只保留管理端登录、管理员账号、RBAC 权限、菜单/按钮权限、文件上传、JWT 安全认证、统一返回和全局异常处理。
-
-> 当前工作目录名为 `aifstock`，但 Maven 元数据、Java 包名与启动类仍显示项目名称为 `Aftourism-server` / `aftourismserver`。
+aifstock 现在已瘦身为后台公共能力服务，只保留管理端登录、管理员账号、RBAC 权限、菜单/按钮权限、文件上传、JWT 安全认证、统一返回和全局异常处理。
 
 ## 技术栈
 
@@ -33,7 +31,7 @@ Aftourism Server 现在已瘦身为后台公共能力服务，只保留管理端
 ├── pom.xml
 ├── src
 │   └── main
-│       ├── java/aftnos/aftourismserver
+│       ├── java/aifstock
 │       │   ├── admin       # 管理员账号、RBAC、菜单管理
 │       │   ├── auth        # 管理端登录、管理员信息、动态菜单
 │       │   ├── common      # 通用返回、异常、安全、配置、工具类
@@ -66,7 +64,7 @@ Aftourism Server 现在已瘦身为后台公共能力服务，只保留管理端
 1. 创建数据库。
 
 ```sql
-CREATE DATABASE aftourism_server DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE aifstock DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 2. 修改配置。
@@ -76,7 +74,7 @@ CREATE DATABASE aftourism_server DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_u
 ```yaml
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/aftourism_server?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/aifstock?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
     username: root
     password: 123456
   data:
@@ -86,7 +84,7 @@ spring:
 
 security:
   jwt:
-    secret: Aftnos-server-key-test-Aftnos-server-key-test
+    secret: aifstock-server-key-test-aifstock-server-key-test
 
 file:
   upload-dir: ./uploads

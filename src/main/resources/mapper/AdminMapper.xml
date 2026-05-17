@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="aftnos.aftourismserver.auth.mapper.AdminMapper">
+<mapper namespace="aifstock.auth.mapper.AdminMapper">
 
     <!-- 查询列封装，避免重复书写 -->
     <sql id="Base_Column_List">
@@ -11,7 +11,7 @@
     </sql>
 
     <!-- 根据账号查询管理员 -->
-    <select id="findByUsername" resultType="aftnos.aftourismserver.auth.pojo.Admin">
+    <select id="findByUsername" resultType="aifstock.auth.pojo.Admin">
         SELECT
         <include refid="Base_Column_List"/>
         FROM t_admin
@@ -20,7 +20,7 @@
     </select>
 
     <!-- 根据主键查询管理员 -->
-    <select id="findById" resultType="aftnos.aftourismserver.auth.pojo.Admin">
+    <select id="findById" resultType="aifstock.auth.pojo.Admin">
         SELECT
         <include refid="Base_Column_List"/>
         FROM t_admin
@@ -29,7 +29,7 @@
     </select>
 
     <!-- 条件分页查询管理员 -->
-    <select id="search" resultType="aftnos.aftourismserver.auth.pojo.Admin">
+    <select id="search" resultType="aifstock.auth.pojo.Admin">
         SELECT
         <include refid="Base_Column_List"/>
         FROM t_admin
@@ -47,7 +47,7 @@
     </select>
 
     <!-- 新增管理员 -->
-    <insert id="insert" parameterType="aftnos.aftourismserver.auth.pojo.Admin" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="aifstock.auth.pojo.Admin" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_admin (
             username, password, real_name, phone, email,
             avatar, introduction, role_code, is_super, status, remark
@@ -58,7 +58,7 @@
     </insert>
 
     <!-- 更新管理员 -->
-    <update id="update" parameterType="aftnos.aftourismserver.auth.pojo.Admin">
+    <update id="update" parameterType="aifstock.auth.pojo.Admin">
         UPDATE t_admin
         <set>
             <if test="realName != null">real_name = #{realName},</if>

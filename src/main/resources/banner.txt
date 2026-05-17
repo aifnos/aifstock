@@ -8,7 +8,7 @@ ${AnsiColor.BRIGHT_BLUE}
 ██║  ██║██║        ██║   ██║ ╚████║╚██████╔╝███████║
 ╚═╝  ╚═╝╚═╝        ╚═╝   ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
 ${AnsiColor.CYAN}
-     :: Aftnos @ https://github.com/Aftnos ::
+     :: aifstock @ https://github.com/aifstock ::
      :: 当前运行项目 - ${spring.application.name} ::
      :: Spring-Boot版本 - ${spring-boot.version} ::
 ${AnsiColor.GREEN}

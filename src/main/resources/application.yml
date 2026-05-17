@@ -1,0 +1,66 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+
+  application:
+    name: Aftourism-server
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/aftourism_server?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: 1000
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: aftnos.aftourismserver
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  config: classpath:logback-spring-dev.xml
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web.servlet.resource: DEBUG
+    aftnos.aftourismserver.common.exception: DEBUG
+
+security:
+  jwt:
+    secret: "Aftnos-server-key-test-Aftnos-server-key-test"
+    expiration: 24h
+    refresh-expiration: 7d
+
+file:
+  upload-dir: ./uploads
+  base-url: http://localhost:8080/files
+  access-pattern: /files/**
+  storage-type: local
+  allowed-types:
+    - jpg
+    - jpeg
+    - png
+    - gif
+    - pdf
+    - mp4

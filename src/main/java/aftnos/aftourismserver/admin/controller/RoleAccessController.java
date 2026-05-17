@@ -1,0 +1,74 @@
+package aftnos.aftourismserver.admin.controller;
+
+import aftnos.aftourismserver.admin.dto.RolePermissionUpsertRequest;
+import aftnos.aftourismserver.admin.service.RoleAccessManageService;
+import aftnos.aftourismserver.admin.vo.PermissionDefinitionVO;
+import aftnos.aftourismserver.admin.vo.RoleSummaryVO;
+import aftnos.aftourismserver.common.result.Result;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * 角色权限配置接口。
+ */
+@Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/admin/rbac")
+public class RoleAccessController {
+
+    private final RoleAccessManageService roleAccessManageService;
+
+    /**
+     * 查询全部角色权限配置。
+     */
+    @GetMapping("/roles")
+    @PreAuthorize("@rbacAuthority.hasPermission(T(aftnos.aftourismserver.common.security.AdminPermission).ROLE_ACCESS_READ)")
+    public Result<List<RoleSummaryVO>> listRoles() {
+        log.info("【查询角色权限列表】");
+        return Result.success(roleAccessManageService.listRoles());
+    }
+
+    /**
+     * 查询权限点目录，便于前端展示。
+     */
+    @GetMapping("/permissions/catalog")
+    @PreAuthorize("@rbacAuthority.hasPermission(T(aftnos.aftourismserver.common.security.AdminPermission).ROLE_ACCESS_READ)")
+    public Result<List<PermissionDefinitionVO>> permissionCatalog() {
+        log.info("【查询权限点目录】");
+        return Result.success(roleAccessManageService.permissionCatalog());
+    }
+
+    /**
+     * 保存角色权限配置。
+     * 
+     * @param request 包含角色编码、角色描述和权限项列表的请求对象
+     *              request.roleCode: 角色编码
+     *              request.remark: 角色描述，用于描述该角色的用途和权限范围
+     *              request.permissions: 权限项列表，每个权限项包含资源键、动作键、是否允许和备注
+     * @return 操作结果
+     */
+    @PostMapping("/roles/permissions")
+    @PreAuthorize("@rbacAuthority.hasPermission(T(aftnos.aftourismserver.common.security.AdminPermission).ROLE_ACCESS_UPDATE)")
+    public Result<Void> savePermissions(@Valid @RequestBody RolePermissionUpsertRequest request) {
+        log.info("【保存角色权限】roleCode={}, remark={}", request.getRoleCode(), request.getRemark());
+        roleAccessManageService.saveRolePermissions(request);
+        return Result.success();
+    }
+
+    /**
+     * 删除角色权限配置。
+     */
+    @DeleteMapping("/roles/{roleCode}")
+    @PreAuthorize("@rbacAuthority.hasPermission(T(aftnos.aftourismserver.common.security.AdminPermission).ROLE_ACCESS_UPDATE)")
+    public Result<Void> deleteRole(@PathVariable String roleCode) {
+        log.info("【删除角色权限】roleCode={}", roleCode);
+        roleAccessManageService.deleteRole(roleCode);
+        return Result.success();
+    }
+}
